@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">App Pets</string>
-    <string name="Hello">El Primary Color es el cyan que es el que prevalece en el logo, el Dark Primary Color es una variante de ese cyan (no es el café)
-                        y el Accent es el rojo que aparece pocas veces en la imagen</string>
     <string name="Botón">Botón</string>
+
+
+    <string name="pnombre">Nombre</string>
+
+
 </resources>
