@@ -37,7 +37,6 @@
         android:text="@string/Botón"
         android:id="@+id/buttonR"
         android:layout_below="@+id/rv_mascotas"
-        android:textColor="#FFFFFF"
         />
 
 
