@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvMascotas"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    cardview:cardCornerRadius="@dimen/corner_cv">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/img_macota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bulldog_ingles_2"
+        android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/margin_icon"
+            android:layout_marginRight="@dimen/margin_icon"
+            android:gravity="center_vertical|center_horizontal">
+
+            <ImageButton
+                android:id="@+id/btnLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bone"
+                android:layout_weight="0.1"
+                android:rotation="140"/>
+
+
+            <TextView
+                android:id="@+id/tv_nombremascota"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/pnombre"
+                android:textSize="@dimen/nombre_mascota"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:layout_weight="2"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tv_numerolikes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:gravity="center_vertical"
+                android:layout_weight="0.1"
+                android:textAlignment="center"/>
+
+            <ImageView
+                android:id="@+id/btnLike_amarillo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bone2"
+                android:layout_weight="0.1"
+                android:rotation="140"/>
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
