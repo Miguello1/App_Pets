@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void inicializarListaMascotas(){ // es mejor crear este método afuera del OnCreated
 
-        mascotas = new ArrayList<>();
+        mascotas = new ArrayList<Mascotas>();
 
         mascotas.add(new Mascotas(R.drawable.bulldog_ingles_2,"Chandosin","0"));
         mascotas.add(new Mascotas(R.drawable.english_bulldog_about_to_sleep,"Beto","0"));
