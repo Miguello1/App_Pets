@@ -10,10 +10,15 @@ public class Mascotas {
     private int foto;
 
 
-    public Mascotas(int foto, String nombre){
+
+    private String like;
+
+
+    public Mascotas(int foto, String nombre, String like){
 
         this.foto   = foto;
         this.nombre = nombre;
+        this.like   = like;
     }
 
 
@@ -33,5 +38,8 @@ public class Mascotas {
         this.foto = foto;
     }
 
+    public String getLike() { return like; }
+
+    public void setLike(String like) { this.like = like; }
 
 }

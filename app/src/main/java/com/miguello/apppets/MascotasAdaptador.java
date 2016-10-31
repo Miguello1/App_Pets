@@ -20,7 +20,12 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
 
     ArrayList<Mascotas> mascotas;
     Activity activity;
-    int click = 0;
+
+    int click = 1;
+    int click1 = 1;
+    int click2 = 1;
+    int click3 = 1;
+    int click4 = 1;
 
 
     public MascotasAdaptador (ArrayList<Mascotas> mascotas, Activity activity){
@@ -37,19 +42,43 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
 
 
     @Override
-    public void onBindViewHolder(final MascotaViewHolder mascotaViewHolder, int position) { // asocia cada elemento de la lista con cada view
+    public void onBindViewHolder(final MascotaViewHolder mascotaViewHolder, final int position) { // asocia cada elemento de la lista con cada view
         // pasar la lista al ViewHolder es decir settear, invoca los elementos de la lista y obtiene la posición del elemento
         final Mascotas mascota = mascotas.get(position);
         mascotaViewHolder.imgFoto.setImageResource(mascota.getFoto()); // setteando la foto
         mascotaViewHolder.tvNombreCV.setText(mascota.getNombre()); //setteando el nombre
-        mascotaViewHolder.tvnumerolikes.setText("+0");
+        mascotaViewHolder.tvnumerolikes.setText(mascota.getLike());
 
         mascotaViewHolder.btnlike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(activity, "Like" + mascota.getNombre(),Toast.LENGTH_SHORT).show();
-                click++;
-                mascotaViewHolder.tvnumerolikes.setText("+"+click);
+                switch (position){
+                    case 0:
+                        mascotaViewHolder.tvnumerolikes.setText("+"+click++);
+                        break;
+
+                    case 1:
+                        mascotaViewHolder.tvnumerolikes.setText("+"+click1++);
+                        break;
+
+                    case 2:
+                        mascotaViewHolder.tvnumerolikes.setText("+"+click2++);
+                        break;
+
+                    case 3:
+                        mascotaViewHolder.tvnumerolikes.setText("+"+click3++);
+                        break;
+
+                    case 4:
+                        mascotaViewHolder.tvnumerolikes.setText("+"+click4++);
+                        break;
+
+
+                    default:
+                        break;
+                }
+
             }
         });
 

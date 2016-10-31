@@ -64,11 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
         mascotas = new ArrayList<Mascotas>();
 
-        mascotas.add(new Mascotas(R.drawable.bulldog_ingles_2,"Chandosin"));
-        mascotas.add(new Mascotas(R.drawable.english_bulldog_about_to_sleep,"Beto"));
-        mascotas.add(new Mascotas(R.drawable.gato_mal_olor,"Bigotes"));
-        mascotas.add(new Mascotas(R.drawable.hamster_eating_tomato_b5cgk7,"Glotón"));
-        mascotas.add(new Mascotas(R.drawable.maxresdefault,"Millo"));
+        mascotas.add(new Mascotas(R.drawable.bulldog_ingles_2,"Chandosin","0"));
+        mascotas.add(new Mascotas(R.drawable.english_bulldog_about_to_sleep,"Beto","0"));
+        mascotas.add(new Mascotas(R.drawable.gato_mal_olor,"Bigotes","0"));
+        mascotas.add(new Mascotas(R.drawable.hamster_eating_tomato_b5cgk7,"Glotón","0"));
+        mascotas.add(new Mascotas(R.drawable.maxresdefault,"Millo","0"));
 
     }
 
