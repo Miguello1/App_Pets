@@ -8,6 +8,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
         setSupportActionBar(miActionBar);
 
-        FloatingActionButton miFAB = (FloatingActionButton) findViewById(R.id.button);
+        //FloatingActionButton miFAB = (FloatingActionButton) findViewById(R.id.button);
 
         listaMascotas = (RecyclerView) findViewById(R.id.rv_mascotas);
 
@@ -74,9 +77,27 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void iraMascotasLike (View v){
-        Intent intent = new Intent(this, MascotasLike.class);
-        startActivity(intent);
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // action with ID action_refresh was selected
+            case R.id.action_estrella:
+                Intent intent = new Intent(this, MascotasLike.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+
+        return true;
     }
 
 }
