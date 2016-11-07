@@ -1,11 +1,13 @@
 package com.miguello.apppets;
 
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+
+import com.miguello.apppets.adapter.MascotasAdaptador;
+import com.miguello.apppets.pojo.Mascotas;
 
 import java.util.ArrayList;
 

@@ -10,10 +10,8 @@
     </style>
 
     <style name="MiBotonRaised" parent="Theme.AppCompat.Light">
-
         <item name="colorButtonNormal">@color/colorAccent</item>
         <item name="colorControlHighlight">#FFFFFF</item>
-
     </style>
 
 </resources>

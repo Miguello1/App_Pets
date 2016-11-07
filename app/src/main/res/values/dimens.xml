@@ -9,6 +9,12 @@
     <dimen name="margin_nombre">90dp</dimen>
 
     <dimen name="elevation_actionbar">4dp</dimen>
+    <dimen name="circulo_imagen">150dp</dimen>
+
+    <dimen name="margin_toptitle">50dp</dimen>
+    <dimen name="margin_top">15dp</dimen>
+    <dimen name="text_size">25sp</dimen>
+    <dimen name="text_size_nombre">20sp</dimen>
 
 
 </resources>

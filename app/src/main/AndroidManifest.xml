@@ -20,7 +20,22 @@
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"></meta-data>
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".activity_contacto"
+            android:parentActivityName=".MascotasLike">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MascotasLike" />
+        </activity>
+
+        <activity
+            android:name=".activity_aboutme">
+            android:parentActivityName=".MascotasLike">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MascotasLike" />
         </activity>
     </application>
 

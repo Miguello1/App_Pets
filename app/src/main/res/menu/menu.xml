@@ -8,10 +8,18 @@
         android:orderInCategory="100"
         app:showAsAction="always"
         android:icon="@drawable/star_hotel_48"
-        android:title="Estrella"/>
+        android:title="@string/menu_estrella"/>
+
+
+    <item
+        android:id="@+id/action_contacto"
+        android:title="@string/menu_contacto">
+    </item>
+
+
     <item
         android:id="@+id/action_settings"
-        android:title="Settings">
+        android:title="@string/menu_acercade">
     </item>
 
 
