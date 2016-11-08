@@ -79,7 +79,7 @@ tools:context="com.miguello.apppets.activity_contacto">
 
 
     <Button
-        android:id="@+id/siguiente"
+        android:id="@+id/enviar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/comentario"

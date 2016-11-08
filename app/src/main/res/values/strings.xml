@@ -4,7 +4,6 @@
 
 
     <string name="pnombre">Nombre</string>
-
     <string name="menu_estrella">Me gusta</string>
     <string name="menu_contacto">Contacto</string>
     <string name="menu_acercade">Acerca de</string>
@@ -12,11 +11,12 @@
 
     <string name="datos">CONTACTO</string>
     <string name="acerca_de">ACERCA DE MI</string>
-
     <string name="acerca_de_mi">Mi nombre es Miguel y soy diseñador y realizador audiovisual, me gusta innovar y por eso estoy acá,
     en el mundo de la programación, para hacer algo diferente</string>
 
     <string name="comentario">Enviar comentario</string>
+    <string name="msg_send">Mensaje Enviado</string>
+
     <string name="chandosin">Chandosin</string>
 
     <string name="hint_nombre">Nombre</string>
