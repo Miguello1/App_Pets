@@ -4,16 +4,21 @@ package com.miguello.apppets.pojo;
 
 public class Mascotas {
 
+    private int id;
     private String nombre;
     private int foto;
-    private String like;
+    private int like;
 
 
-    public Mascotas(int foto, String nombre, String like){
+    public Mascotas(int foto, String nombre, int like){
 
         this.foto   = foto;
         this.nombre = nombre;
         this.like   = like;
+    }
+
+    public Mascotas() {
+
     }
 
 
@@ -33,8 +38,13 @@ public class Mascotas {
         this.foto = foto;
     }
 
-    public String getLike() { return like; }
+    public int getLike() { return like; }
 
-    public void setLike(String like) { this.like = like; }
+    public void setLike(int like) { this.like = like; }
 
+    public int getId() { return id; }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

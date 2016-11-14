@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.miguello.apppets.db.ConstructorMascotas;
 import com.miguello.apppets.pojo.Mascotas;
 import com.miguello.apppets.R;
 
@@ -24,11 +25,11 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
     ArrayList<Mascotas> mascotas;
     Activity activity;
 
-    int click = 1;
-    int click1 = 1;
-    int click2 = 1;
-    int click3 = 1;
-    int click4 = 1;
+    //int click = 1;
+    //int click1 = 1;
+    //int click2 = 1;
+    //int click3 = 1;
+    //int click4 = 1;
 
 
     public MascotasAdaptador (ArrayList<Mascotas> mascotas, Activity activity){
@@ -45,18 +46,24 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
 
 
     @Override
-    public void onBindViewHolder(final MascotaViewHolder mascotaViewHolder, final int position) { // asocia cada elemento de la lista con cada view
+    public void onBindViewHolder(final MascotaViewHolder mascotaViewHolder, int position) { // asocia cada elemento de la lista con cada view
         // pasar la lista al ViewHolder es decir settear, invoca los elementos de la lista y obtiene la posición del elemento
         final Mascotas mascota = mascotas.get(position);
         mascotaViewHolder.imgFoto.setImageResource(mascota.getFoto()); // setteando la foto
         mascotaViewHolder.tvNombreCV.setText(mascota.getNombre()); //setteando el nombre
-        mascotaViewHolder.tvnumerolikes.setText(mascota.getLike());
+        mascotaViewHolder.tvnumerolikes.setText("+" + String.valueOf(mascota.getLike()));
 
         mascotaViewHolder.btnlike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(activity, "Like" + mascota.getNombre(),Toast.LENGTH_SHORT).show();
-                switch (position){
+
+                ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
+                constructorMascotas.darLike(mascota);
+
+                mascotaViewHolder.tvnumerolikes.setText("+" + constructorMascotas.obtenerLikesMascota(mascota));
+
+                /*switch (position){
                     case 0:
                         mascotaViewHolder.tvnumerolikes.setText("+"+click++);
                         break;
@@ -80,7 +87,7 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
 
                     default:
                         break;
-                }
+                }*/
 
             }
         });
@@ -90,6 +97,7 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
 
     @Override
     public int getItemCount() { //cantidad de elementos que contiene la lista
+
         return mascotas.size();
     }
 
@@ -107,10 +115,10 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
         public MascotaViewHolder(View itemView) { // (View itemview) significa que esta recibiendo un view es decir (v)
             super(itemView);
 
-            imgFoto     = (ImageView) itemView.findViewById(R.id.img_macota);
-            tvNombreCV  = (TextView) itemView.findViewById(R.id.tv_nombremascota);
-            btnlike     = (ImageButton) itemView.findViewById(R.id.btnLike);
-            tvnumerolikes = (TextView) itemView.findViewById(R.id.tv_numerolikes);
+            imgFoto         = (ImageView) itemView.findViewById(R.id.img_macota);
+            tvNombreCV      = (TextView) itemView.findViewById(R.id.tv_nombremascota);
+            btnlike         = (ImageButton) itemView.findViewById(R.id.btnLike);
+            tvnumerolikes   = (TextView) itemView.findViewById(R.id.tv_numerolikes);
 
         }
     }

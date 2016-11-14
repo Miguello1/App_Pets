@@ -12,15 +12,18 @@ import android.view.ViewGroup;
 import com.miguello.apppets.R;
 import com.miguello.apppets.adapter.MascotasAdaptador;
 import com.miguello.apppets.pojo.Mascotas;
+import com.miguello.apppets.presentador.IRecyclerViewFragmentPresenter;
+import com.miguello.apppets.presentador.RecyclerViewFragmentPresenter;
 
 import java.util.ArrayList;
 
 
-public class fragment_recyclerview extends Fragment {
+public class fragment_recyclerview extends Fragment implements IRecyclerViewFragmentView {
 
 
     ArrayList<Mascotas> mascotas;
     private RecyclerView listaMascotas;
+    private IRecyclerViewFragmentPresenter presenter;
 
 
     @Override
@@ -31,39 +34,40 @@ public class fragment_recyclerview extends Fragment {
 
 
         listaMascotas = (RecyclerView) v.findViewById(R.id.rv_mascotas);
+        presenter = new RecyclerViewFragmentPresenter(this, getContext());
+        return v;
 
+    }
+
+
+
+    /*public void inicializarListaMascotas(){ // es mejor crear este método afuera del OnCreated
+
+       esta parte la mandamos al ConstructorMascotas
+
+    }*/
+
+
+    @Override
+    public void generarLinearLayoutVertical() {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity()); // llm es lineas layout manager
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
         //GridLayoutManager glm = new GridLayoutManager(this, 2);  // el 2 significa el número de columnas
 
-
         listaMascotas.setLayoutManager(llm); //Que el RecyclerView se comporte como LinearLayoutManager Vertical
-        inicializarListaMascotas();
-        inicializarAdaptador();
-
-        return v;
-
     }
 
-    public void inicializarAdaptador(){
-
+    @Override
+    public MascotasAdaptador crearAdaptador(ArrayList<Mascotas> mascotas) {
         MascotasAdaptador adaptador = new MascotasAdaptador(mascotas, getActivity());
+        return adaptador;
+    }
+
+    @Override
+    public void inicializarAdaptadorRV(MascotasAdaptador adaptador) {
         listaMascotas.setAdapter(adaptador); // aquí el RecyclerView ya contiene el adaptador por lo tanto la lista
-
     }
 
-
-    public void inicializarListaMascotas(){ // es mejor crear este método afuera del OnCreated
-
-        mascotas = new ArrayList<Mascotas>();
-
-        mascotas.add(new Mascotas(R.drawable.bulldog_ingles_2,"Chandosin","0"));
-        mascotas.add(new Mascotas(R.drawable.english_bulldog_about_to_sleep,"Beto","0"));
-        mascotas.add(new Mascotas(R.drawable.gato_mal_olor,"Bigotes","0"));
-        mascotas.add(new Mascotas(R.drawable.hamster_eating_tomato_b5cgk7,"Glotón","0"));
-        mascotas.add(new Mascotas(R.drawable.maxresdefault,"Millo","0"));
-
-    }
 
 }

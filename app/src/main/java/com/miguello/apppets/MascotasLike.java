@@ -48,11 +48,11 @@ public class MascotasLike extends AppCompatActivity {
 
         mascotaslike = new ArrayList<Mascotas>();
 
-        mascotaslike.add(new Mascotas(R.drawable.english_bulldog_about_to_sleep,"Beto","5"));
-        mascotaslike.add(new Mascotas(R.drawable.hamster_eating_tomato_b5cgk7,"Glotón","1"));
-        mascotaslike.add(new Mascotas(R.drawable.bulldog_ingles_2,"Chandosin","10"));
-        mascotaslike.add(new Mascotas(R.drawable.maxresdefault,"Millo","7"));
-        mascotaslike.add(new Mascotas(R.drawable.gato_mal_olor,"Bigotes","3"));
+        mascotaslike.add(new Mascotas(R.drawable.english_bulldog_about_to_sleep,"Beto",5));
+        mascotaslike.add(new Mascotas(R.drawable.hamster_eating_tomato_b5cgk7,"Glotón",1));
+        mascotaslike.add(new Mascotas(R.drawable.bulldog_ingles_2,"Chandosin",10));
+        mascotaslike.add(new Mascotas(R.drawable.maxresdefault,"Millo",7));
+        mascotaslike.add(new Mascotas(R.drawable.gato_mal_olor,"Bigotes",3));
 
     }
 
