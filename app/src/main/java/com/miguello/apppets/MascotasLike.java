@@ -34,7 +34,7 @@ public class MascotasLike extends AppCompatActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
         listaMascotaslike.setLayoutManager(llm); //Que el RecyclerView se comporte como LinearLayoutManager Vertical
-        inicializarListaMascotaslike();
+        //inicializarListaMascotaslike();
         inicializarAdaptador();
     }
 
@@ -44,7 +44,7 @@ public class MascotasLike extends AppCompatActivity {
         listaMascotaslike.setAdapter(adaptador); // aquí el RecyclerView ya contiene el adaptador por lo tanto la lista
     }
 
-    public void inicializarListaMascotaslike(){ // es mejor crear este método afuera del OnCreated
+    /*public void inicializarListaMascotaslike(){ // es mejor crear este método afuera del OnCreated
 
         mascotaslike = new ArrayList<Mascotas>();
 
@@ -54,7 +54,7 @@ public class MascotasLike extends AppCompatActivity {
         mascotaslike.add(new Mascotas(R.drawable.maxresdefault,"Millo",7));
         mascotaslike.add(new Mascotas(R.drawable.gato_mal_olor,"Bigotes",3));
 
-    }
+    }*/
 
 
 }
