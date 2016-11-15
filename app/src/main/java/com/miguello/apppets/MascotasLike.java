@@ -8,14 +8,17 @@ import android.support.v7.widget.Toolbar;
 
 import com.miguello.apppets.adapter.MascotasAdaptador;
 import com.miguello.apppets.pojo.Mascotas;
+import com.miguello.apppets.presentador.FavoritosPresenter;
+import com.miguello.apppets.presentador.IFavoritosPresenter;
 
 import java.util.ArrayList;
 
-public class MascotasLike extends AppCompatActivity {
+public class MascotasLike extends AppCompatActivity implements IMascotasLike{
 
 
     ArrayList<Mascotas> mascotaslike;
     private RecyclerView listaMascotaslike;
+    private IFavoritosPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,20 +32,33 @@ public class MascotasLike extends AppCompatActivity {
 
 
         listaMascotaslike = (RecyclerView) findViewById(R.id.rv_mascotaslike);
+        presenter = new FavoritosPresenter(this,this);
 
+        //inicializarListaMascotaslike();
+    }
+
+
+
+    @Override
+    public void generarLinearLayoutVertical() {
         LinearLayoutManager llm = new LinearLayoutManager(this); // llm es lineas layout manager
         llm.setOrientation(LinearLayoutManager.VERTICAL);
-
         listaMascotaslike.setLayoutManager(llm); //Que el RecyclerView se comporte como LinearLayoutManager Vertical
-        //inicializarListaMascotaslike();
-        inicializarAdaptador();
     }
 
-    public void inicializarAdaptador() {
+    @Override
+    public MascotasAdaptador crearAdaptador(ArrayList<Mascotas> mascotas) {
+        MascotasAdaptador adaptador = new MascotasAdaptador(mascotas, this);
+        return adaptador;
+    }
 
-        MascotasAdaptador adaptador = new MascotasAdaptador(mascotaslike, this);
+    @Override
+    public void inicializarAdaptadorRV(MascotasAdaptador adaptador) {
         listaMascotaslike.setAdapter(adaptador); // aquí el RecyclerView ya contiene el adaptador por lo tanto la lista
     }
+
+
+
 
     /*public void inicializarListaMascotaslike(){ // es mejor crear este método afuera del OnCreated
 
@@ -55,6 +71,8 @@ public class MascotasLike extends AppCompatActivity {
         mascotaslike.add(new Mascotas(R.drawable.gato_mal_olor,"Bigotes",3));
 
     }*/
+
+
 
 
 }

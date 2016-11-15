@@ -84,14 +84,18 @@ public class ConstructorMascotas {
     }
 
 
-
-
-
-
-
     public int obtenerLikesMascota(Mascotas mascotas){
         BaseDatos sqLiteDatabase = new BaseDatos(context);
         return sqLiteDatabase.obtenerLikeMascota(mascotas);
+    }
+
+
+    public ArrayList<Mascotas> obtenerMascotasFavoritas(){
+        ArrayList<Mascotas> mascotas = new ArrayList<>();
+
+        BaseDatos sqLiteDatabase = new BaseDatos(context);
+        mascotas = sqLiteDatabase.obtenerMascotasFavoritas();
+        return mascotas;
     }
 
 

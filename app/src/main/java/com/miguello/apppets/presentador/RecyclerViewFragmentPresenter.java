@@ -19,6 +19,7 @@ public class RecyclerViewFragmentPresenter implements IRecyclerViewFragmentPrese
     private ConstructorMascotas constructorMascotas;
     private ArrayList<Mascotas> mascotas;
 
+
     public RecyclerViewFragmentPresenter(IRecyclerViewFragmentView iRecyclerViewFragmentView, Context context) {
         this.iRecyclerViewFragmentView = iRecyclerViewFragmentView;
         this.context = context;
@@ -30,7 +31,6 @@ public class RecyclerViewFragmentPresenter implements IRecyclerViewFragmentPrese
         constructorMascotas = new ConstructorMascotas(context);
         mascotas = constructorMascotas.obtenerDatos();
         mostrarMascotasRV();
-
     }
 
     @Override

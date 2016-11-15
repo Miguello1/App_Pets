@@ -49,6 +49,7 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
     public void onBindViewHolder(final MascotaViewHolder mascotaViewHolder, int position) { // asocia cada elemento de la lista con cada view
         // pasar la lista al ViewHolder es decir settear, invoca los elementos de la lista y obtiene la posición del elemento
         final Mascotas mascota = mascotas.get(position);
+        final ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
         mascotaViewHolder.imgFoto.setImageResource(mascota.getFoto()); // setteando la foto
         mascotaViewHolder.tvNombreCV.setText(mascota.getNombre()); //setteando el nombre
         mascotaViewHolder.tvnumerolikes.setText("+" + String.valueOf(mascota.getLike()));
@@ -58,9 +59,7 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
             public void onClick(View view) {
                 Toast.makeText(activity, "Like" + mascota.getNombre(),Toast.LENGTH_SHORT).show();
 
-                ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
                 constructorMascotas.darLike(mascota);
-
                 mascotaViewHolder.tvnumerolikes.setText("+" + constructorMascotas.obtenerLikesMascota(mascota));
 
                 /*switch (position){
@@ -96,10 +95,7 @@ public class MascotasAdaptador extends RecyclerView.Adapter<MascotasAdaptador.Ma
 
 
     @Override
-    public int getItemCount() { //cantidad de elementos que contiene la lista
-
-        return mascotas.size();
-    }
+    public int getItemCount() { return mascotas.size(); } //cantidad de elementos que contiene la lista
 
 
 

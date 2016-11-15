@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class BaseDatos extends SQLiteOpenHelper {
 
     private Context context;
-
     public BaseDatos(Context context) {
         super(context, ConstantesBD.DATABASE_NAME, null, ConstantesBD.DATABASE_VERSION);
         this.context = context;
@@ -85,7 +84,6 @@ public class BaseDatos extends SQLiteOpenHelper {
         }
 
         sqLiteDatabase.close();
-
         return mascotas;
     }
 
@@ -118,11 +116,40 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         if (registros.moveToNext()){
             likes = registros.getInt(0);
-
         }
 
         sqLiteDatabase.close();
         return likes;
     }
+
+
+
+    public ArrayList<Mascotas> obtenerMascotasFavoritas(){
+        ArrayList<Mascotas> mascotas = new ArrayList<>();
+
+        String query =  "SELECT m.*, (SELECT COUNT ("   +   ConstantesBD.TABLE_LIKES_MASCOTAS_LIKES   +   ")"     +
+                        " FROM "    + ConstantesBD.TABLE_LIKES_MASCOTAS             +
+                        " WHERE "   + ConstantesBD.TABLE_LIKES_MASCOTAS_ID_MASCOTA  + "=m.id) as likes"     +
+                        " FROM "    + ConstantesBD.TABLE_MASCOTAS                   +" m"                   +
+                        " ORDER BY likes DESC"  +
+                        " LIMIT 5";
+
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor registros = sqLiteDatabase.rawQuery(query,null);
+
+        while (registros.moveToNext()){
+            Mascotas mascotaActual = new Mascotas();
+            mascotaActual.setId(registros.getInt(0));
+            mascotaActual.setNombre(registros.getString(1));
+            mascotaActual.setFoto(registros.getInt(2));
+
+            mascotas.add(mascotaActual);
+
+        }
+
+        sqLiteDatabase.close();
+        return mascotas;
+    }
+
 
 }
